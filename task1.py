@@ -37,8 +37,11 @@ def copy_files(files, dest_dir):
 
 def main():
     args = parse_arguments()
-    source_dir = args.source_dir
-    dest_dir = args.dest_dir
+    source_dir = os.path.abspath(args.source_dir)
+    dest_dir = os.path.abspath(args.dest_dir)
+
+    print(f"Вихідна директорія: {source_dir}")
+    print(f"Директорія призначення: {dest_dir}")
 
     if not os.path.exists(source_dir):
         print(f"Вихідна директорія {source_dir} не існує.")
